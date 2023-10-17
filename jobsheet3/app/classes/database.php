@@ -57,8 +57,8 @@ class database
         return $hasil;
     }
 
-    function tambah_dosen($nama, $nip, $alamat){
-        mysqli_query($this->koneksi, "insert into dosen (nama, nip, alamat) value('$nama','$nip','$alamat')");
+    function tambah_dosen($nip, $nama, $alamat){
+        mysqli_query($this->koneksi, "insert into dosen (nip, nama, alamat) value('$nip','$nama','$alamat')");
     }
 
     function edit_dosen($id){
@@ -70,8 +70,8 @@ class database
         return $hasil;
     }
 
-    function update_dosen($id, $nama, $nip, $alamat){
-        mysqli_query($this->koneksi, "update dosen set nama='$nama', nip='$nip', alamat='$alamat' where id='$id'");
+    function update_dosen($id, $nip, $nama, $alamat){
+        mysqli_query($this->koneksi, "update dosen set nip='$nip', nama='$nama', alamat='$alamat' where id='$id'");
     }
 
     function hapus_dosen($id){

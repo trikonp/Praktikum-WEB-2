@@ -1,9 +1,7 @@
 <?php
-//memanggil class
 include '../classes/database.php';
 $db = new database;
 ?>
-
 
 <head>
     <meta charset="utf-8">
@@ -13,8 +11,8 @@ $db = new database;
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-3 border-bottom">
+        <div class="container-fluid px-4">
             <a class="navbar-brand" href="#">SIACAD</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -36,36 +34,37 @@ $db = new database;
     </nav>
 
 
-    <h3>Data Mahasiswa</h3>
-    <a href="input_mhs.php" class="btn btn-primary">Tambah Mahasiswa</a>
-    <table class="table table-striped">
-        <tr>
-            <th>No</th>
-            <th>NIM</th>
-            <th>Nama</th>
-            <th>Alamat</th>
-            <th>Aksi</th>
-        </tr>
-
-        <?php
-        $no = 1;
-        foreach ($db->tampil_mahasiswa() as $x) {
-        ?>
+    <div class="px-4">
+        <h3 class="mt-3">Data Dosen</h3>
+        <a href="input_dosen.php" class="btn btn-primary mt-3">Tambah Dosen</a>
+        <table class="table table-bordered table-striped mt-3">
             <tr>
-                <td><?php echo $no++ ?></td>
-                <td><?php echo $x['nim'] ?></td>
-                <td><?php echo $x['nama'] ?></td>
-                <td><?php echo $x['alamat'] ?></td>
-                <td>
-                    <a href="edit_mhs.php?id=<?php echo $x['id']; ?>&aksi=edit" class="btn btn-warning">Edit</a>
-                    <a href="proses_mhs.php?id=<?php echo $x['id']; ?>&aksi=hapus" class="btn btn-danger">Hapus</a>
-                </td>
+                <th>No</th>
+                <th>NIP</th>
+                <th>Nama</th>
+                <th>Alamat</th>
+                <th>Opsi</th>
             </tr>
-        <?php
-        }
-        ?>
+            <?php
+            $no = 1;
+            foreach ($db->tampil_dosen() as $x) {
+            ?>
+                <tr>
+                    <td><?php echo $no++ ?></td>
+                    <td><?php echo $x['nip'] ?></td>
+                    <td><?php echo $x['nama'] ?></td>
+                    <td><?php echo $x['alamat'] ?></td>
+                    <td>
+                        <a href="edit_dosen.php?id=<?php echo $x['id']; ?>&aksi=edit" class="btn btn-warning">Edit</a>
+                        <a href="proses_dosen.php?id=<?php echo $x['id']; ?>&aksi=hapus" class="btn btn-danger">Hapus</a>
+                    </td>
+                </tr>
+            <?php
+            }
+            ?>
+        </table>
+    </div>
 
-    </table>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
