@@ -5,12 +5,16 @@
     <title>Branching</title>
 </head>
 <body>
+    <form method="post" action="">
+    Masukkan Nilai A: <input type="number" name="nilaiA">
+    <input type="submit" name="submit" value="Hitung">
     
+
 <?php
-if (isset($_POST['submit'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $A = (int)$_POST['nilaiA'];
 
-    echo "Bilangan A = $A <br><br>";
+    echo "<br><br>Bilangan A = $A <br>";
 
     if ($A < 0) {
         echo "Maka Bilangan $A = Bilangan Negatif";
@@ -22,9 +26,6 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-<form method="post" action="">
-    Masukkan Nilai A: <input type="text" name="nilaiA">
-    <input type="submit" name="submit" value="Hitung">
 </form>
 
 </body>
