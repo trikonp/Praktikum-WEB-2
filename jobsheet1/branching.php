@@ -5,7 +5,7 @@
     <title>Branching</title>
 </head>
 <body>
-    <form method="post" action="">
+    <form method="post">
     Masukkan Nilai A: <input type="number" name="nilaiA">
     <input type="submit" name="submit" value="Hitung">
     

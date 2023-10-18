@@ -24,8 +24,8 @@ class database
         return $hasil;
     }
 
-    function tambah_mahasiswa($nama,$nim, $alamat){
-        mysqli_query($this->koneksi, "insert into mahasiswa (nama, nim, alamat) value('$nama','$nim','$alamat')");
+    function tambah_mahasiswa($nim,$nama, $alamat){
+        mysqli_query($this->koneksi, "insert into mahasiswa (nim, nama, alamat) value('$nim','$nama','$alamat')");
     }
 
     function edit_mahasiswa($id){

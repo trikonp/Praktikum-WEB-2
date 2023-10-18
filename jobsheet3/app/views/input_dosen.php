@@ -6,11 +6,31 @@
 </head>
 
 <body>
-    <div class="border" style="max-width: 400px; margin: 50px auto 0 auto; padding: 20px;">
-        <h3 class="text-center">Tambah Data Dosen</h3>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-3 border-bottom">
+        <div class="container-fluid px-3">
+            <a class="navbar-brand">SIAKAD</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="tampil_mhs.php">Mahasiswa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="tampil_dosen.php">Dosen</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="border" style="max-width: 400px; margin: 20px auto; padding: 20px;">
+        <h3 class="text-center mb-5">Tambah Data Dosen</h3>
         <form action="proses_dosen.php?aksi=tambah" method="post">
             <div class="mb-3">
-                <label class="form-label">NIM</label>
+                <label class="form-label">NIDN</label>
                 <input type="number" name="nip" class="form-control">
             </div>
             <div class="mb-3">
@@ -21,8 +41,10 @@
                 <label class="form-label">Alamat</label>
                 <textarea name="alamat" cols="30" rows="5" class="form-control"></textarea>
             </div>
-            <a href="tampil_dosen.php" class="btn btn-secondary">Kembali</a>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="d-flex justify-content-between">
+                <a href="tampil_dosen.php" class="btn btn-secondary w-100 mx-2">Kembali</a>
+                <button type="submit" class="btn btn-primary w-100 mx-2">Submit</button>
+            </div>
         </form>
     </div>
 

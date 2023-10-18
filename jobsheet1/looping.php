@@ -25,7 +25,7 @@
     do {
         $isPrima = true;
 
-        for ($c = 2; $c <= sqrt($Angka); $c++) {
+        for ($c = 2; $c * $c <= $Angka; $c++) {
             if ($Angka % $c == 0) {
                 $isPrima = false;
                 break;
@@ -38,6 +38,7 @@
 
         $Angka++;
     } while ($Angka < 20);
+
 
 
     ?>

@@ -6,19 +6,39 @@ $db = new database();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tambah Data Dosen</title>
+    <title>Edit Data Dosen</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
-    <div class="border" style="max-width: 400px; margin: 50px auto 0 auto; padding: 20px;">
-        <h3 class="text-center">Edit data Dosen</h3>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-3 border-bottom">
+        <div class="container-fluid px-3">
+            <a class="navbar-brand">SIAKAD</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="tampil_mhs.php">Mahasiswa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="tampil_dosen.php">Dosen</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="border" style="max-width: 400px; margin: 20px auto; padding: 20px;">
+        <h3 class="text-center mb-5">Edit data Dosen</h3>
         <form action="proses_dosen.php?aksi=update" method="post">
             <?php
             foreach ($db->edit_dosen($_GET['id']) as $d) {
             ?>
                 <div class="mb-3">
-                    <label class="form-label">NIP</label>
+                    <label class="form-label">NIDN</label>
                     <input type="hidden" name="id" value="<?php echo $d['id'] ?>" class="form-control">
                     <input type="number" name="nip" value="<?php echo $d['nip'] ?>" class="form-control">
                 </div>
@@ -30,8 +50,10 @@ $db = new database();
                     <label class="form-label">Alamat</label>
                     <textarea name="alamat" cols="30" rows="5" class="form-control"><?php echo $d['alamat'] ?></textarea>
                 </div>
-                <a href="tampil_dosen.php" class="btn btn-secondary">Kembali</a>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="d-flex justify-content-between">
+                    <a href="tampil_dosen.php" class="btn btn-secondary w-100 mx-2">Kembali</a>
+                    <button type="submit" class="btn btn-primary w-100 mx-2">Submit</button>
+                </div>
             <?php
             }
             ?>
